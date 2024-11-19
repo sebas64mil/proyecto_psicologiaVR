@@ -15,7 +15,7 @@ export class Extras {
         const opcion1 = new THREE.Mesh( geometry_situaciones, material_opcion1 );
         opcion1.position.set(-0.55,5.7,0)
         opcion1.rotation.y=THREE.MathUtils.degToRad(90);
-        console.log("verificar");
+        console.log("Comprobar");
         
 
         this.scene.add( opcion1 );
