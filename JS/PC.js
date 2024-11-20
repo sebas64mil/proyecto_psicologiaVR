@@ -131,6 +131,60 @@ export class PC {
         }
     }
     
+    Comprobar1() {
+        // Variable para rastrear si el botón ya fue presionado
+        if (this.buttonPressed === undefined) {
+            this.buttonPressed = false; // Inicialización la primera vez que se llama al método
+        }
+    
+        // Realizamos el raycast para detectar las colisiones
+        const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+    
+        if (intersects.length > 0) {
+            // Accedemos al objeto intersectado
+            let intersectedObject = intersects[0].object;
+    
+            // Recorremos la jerarquía hacia arriba buscando el objeto principal
+            while (intersectedObject.parent) {
+                if (intersectedObject.name === "FBXbotonInicio") {
+                    // Verificar si un gamepad está conectado
+                    const gamepads = navigator.getGamepads();
+                    if (gamepads && gamepads[0]) {
+                        const gamepad = gamepads[0];
+    
+                        // Verificar si el botón fue presionado y no ha sido registrado antes
+                        if (gamepad.buttons[0].pressed && !this.buttonPressed) {
+                            console.log("El objeto colisionado es el portalButton y se presionó el botón del gamepad");
+    
+                            // Marcamos el botón como presionado
+                            this.buttonPressed = true;
+    
+                            // Vibración en el dispositivo móvil
+                            if (navigator.vibrate) {
+                                navigator.vibrate(200);
+                            }
+    
+                            // Establecer el valor de Boton
+                            let Boton = "inicio";
+    
+                            // Llamar al método para crear el plano directamente
+
+                                this.PM.createText(Boton); // Crear el plano en lugar de solo cambiar el valor de Boton
+
+    
+                            return;
+                        }
+                    }
+    
+                    console.log("El objeto colisionado es el portalButton, pero no se presionó el botón del gamepad");
+                    return;
+                }
+                intersectedObject = intersectedObject.parent;
+            }
+    
+            console.log("El objeto colisionado no es el portalButton");
+        }
+    }
     
     
 

@@ -24,6 +24,12 @@ export class PM {
             // Posicionar el plano en la escena
             plane.position.set(0, 6.3, 0); // Ajusta la posición como sea necesario
             this.scene.add(plane);
+
+            this.scene.traverse((child) => {
+                if (child.name === "PuertaSala2") {
+                    this.scene.remove(child); // Eliminar el objeto de la escena
+                }
+            });
         }
     }
 }

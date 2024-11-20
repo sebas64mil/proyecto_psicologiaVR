@@ -159,7 +159,9 @@ export class Extras {
         this.scene.add(puertasInicio);
 
         const puertasAsala2 = new THREE.Mesh( geometry_puertas, material_puerta );
-        puertasAsala2.position.set(0,6.3,1.5)
+        puertasAsala2.position.set(0,6.3,1.5);
+        puertasAsala2.name="PuertaSala2"
+        
         this.scene.add(puertasAsala2);
     }
 }
