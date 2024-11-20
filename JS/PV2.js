@@ -155,8 +155,7 @@ export class Extras {
 
         
         const puertasInicio = new THREE.Mesh( geometry_puertas, material_puerta );
-        puertasInicio.position.set(0,6,-0.7)
-        puertasInicio.rotation.y=THREE.MathUtils.degToRad(90);
+        puertasInicio.position.set(0,6,6.3,-0.7)
         this.scene.add(puertasInicio);
     }
 }

@@ -115,7 +115,7 @@ export class PC {
                             // Llamar al método para crear el plano directamente
 
                                 this.PM.createText(Boton); // Crear el plano en lugar de solo cambiar el valor de Boton
- 
+
     
                             return;
                         }
