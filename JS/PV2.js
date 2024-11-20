@@ -12,6 +12,12 @@ export class Extras {
         const textureintroduccion = textureLoader.load('Textures/Letreros_textures/Introduccion.jpg');
         const textureextrovertido = textureLoader.load('Textures/Letreros_textures/S1-E.jpg');
         const textureIntrovertido = textureLoader.load('Textures/Letreros_textures/S1-I.jpg');
+        const textureIntuicion = textureLoader.load('Textures/Letreros_textures/S2-INT.jpg');
+        const textureSensitivo = textureLoader.load('Textures/Letreros_textures/S2-SEN.jpg');
+        const textureLogica = textureLoader.load('Textures/Letreros_textures/S3-L.jpg');
+        const textureSentido = textureLoader.load('Textures/Letreros_textures/S3-S.jpg');
+        const texturePercepcion = textureLoader.load('Textures/Letreros_textures/S4-P.jpg');
+        const textureJuicio = textureLoader.load('Textures/Letreros_textures/S4-J.jpg');
 
         const geometry_situaciones = new THREE.PlaneGeometry( 0.5, 0.4 );
         
@@ -34,6 +40,19 @@ export class Extras {
             map:textureIntrovertido, side: THREE.DoubleSide
         
         } );
+
+        const material_intuicion = new THREE.MeshBasicMaterial( {
+            
+            map:textureIntuicion, side: THREE.DoubleSide
+        
+        } );
+
+        
+        const material_sensitivo = new THREE.MeshBasicMaterial( {
+            
+            map:textureSensitivo, side: THREE.DoubleSide
+        
+        } );
         
         
         
@@ -44,11 +63,11 @@ export class Extras {
         console.log("Comprobar");
 
         const extrovertido = new THREE.Mesh( geometry_situaciones, material_extrovertido );
-        extrovertido.position.set(0.55,6.1,2)
+        extrovertido.position.set(0.55,6.3,2)
         extrovertido.rotation.y=THREE.MathUtils.degToRad(90);
 
         const Introvertido = new THREE.Mesh( geometry_situaciones, material_introvertido );
-        Introvertido.position.set(0.55,7.2,2.8)
+        Introvertido.position.set(0.55,6.3,2.8)
         Introvertido.rotation.y=THREE.MathUtils.degToRad(90);
 
         this.scene.add( introduccion );
