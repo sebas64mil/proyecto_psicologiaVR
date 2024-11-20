@@ -6,30 +6,30 @@ export class PM {
     }
 
     createText(Boton) {
-
         const textureLoader = new THREE.TextureLoader();
-
+    
         if (Boton === "inicio") {
-            // Crear un plano en lugar de texto
             const texture_Contiue1 = textureLoader.load('Textures/Letreros_textures/Continuar.jpg');
-
-            const geometry = new THREE.PlaneGeometry(0.5, 0.5); // Tamaño del plano (ajústalo según lo que necesites)
+    
+            const geometry = new THREE.PlaneGeometry(0.5, 0.5);
             const material = new THREE.MeshBasicMaterial({ 
                 map: texture_Contiue1, 
-                side: THREE.DoubleSide }); // Material del plano, en este caso un color sólido
-
+                side: THREE.DoubleSide 
+            });
+    
             const plane = new THREE.Mesh(geometry, material);
-            plane.name = 'FBXbotonInicio'; // Nombre del objeto para la detección de raycast
-
-            // Posicionar el plano en la escena
-            plane.position.set(0, 6.3, 0); // Ajusta la posición como sea necesario
+            plane.name = 'FBXbotonInicio';
+            plane.position.set(0, 6.3, 0);
             this.scene.add(plane);
-
+    
+            // Eliminar el objeto "PuertaSala2"
             this.scene.traverse((child) => {
                 if (child.name === "PuertaSala2") {
-                    this.scene.remove(child); // Eliminar el objeto de la escena
+                    this.scene.remove(child);
+                    console.log("PuertaSala2 eliminada");
                 }
             });
         }
     }
+    
 }
