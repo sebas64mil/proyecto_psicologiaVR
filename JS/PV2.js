@@ -118,6 +118,18 @@ export class Extras {
         juicion.position.set(-0.55,6.3,10)
         juicion.rotation.y=THREE.MathUtils.degToRad(90);
 
+        introduccion.name = "FBXintro";
+        extrovertido.name = "FBXextrovertido";
+        Introvertido.name = "FBXintrovertido";
+        Intuicion.name = "FBXintuicion";
+        Sensitivo.name = "FBXsensitivo";
+        Logica.name = "FBXlogica";
+        Sentido.name = "FBXsentido";
+        juicion.name = "FBXAjuicio";
+        percepcion.name = "FBXApercepcion";
+
+
+
         this.scene.add( introduccion );
         this.scene.add(extrovertido);
         this.scene.add(Introvertido);
