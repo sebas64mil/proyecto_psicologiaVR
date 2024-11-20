@@ -25,7 +25,7 @@ export class PM {
             // Eliminar el objeto "PuertaSala2"
             this.scene.traverse((child) => {
                 if (child.name === "PuertaSala2") {
-                    this.scene.remove(child);
+                    child.position.y = +5;
                     console.log("PuertaSala2 eliminada");
                 }
             });
