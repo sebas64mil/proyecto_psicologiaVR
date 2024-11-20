@@ -77,8 +77,8 @@ export class PC {
     
 
     Comprobar() {
-        if (this.buttonPressed === undefined) {
-            this.buttonPressed = false;
+        if (this.buttonPressedComprobar === undefined) {
+            this.buttonPressedComprobar = false; // Bandera independiente para Comprobar
         }
     
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
@@ -92,10 +92,10 @@ export class PC {
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
     
-                        if (gamepad.buttons[0].pressed && !this.buttonPressed) {
+                        if (gamepad.buttons[0].pressed && !this.buttonPressedComprobar) {
                             console.log("FBXbotonInicio colisionado y botón del gamepad presionado");
     
-                            this.buttonPressed = true;
+                            this.buttonPressedComprobar = true; // Marca este botón como presionado
     
                             if (navigator.vibrate) {
                                 navigator.vibrate(200);
@@ -121,8 +121,8 @@ export class PC {
     }
     
     Comprobar1() {
-        if (this.buttonPressed1 === undefined) {
-            this.buttonPressed1 = false; // Inicializa si no está definido
+        if (this.buttonPressedComprobar1 === undefined) {
+            this.buttonPressedComprobar1 = false; // Bandera independiente para Comprobar1
         }
     
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
@@ -131,39 +131,39 @@ export class PC {
             let intersectedObject = intersects[0].object;
     
             while (intersectedObject.parent) {
-                if (["FBXbotonIntrovertido", "FBXbotonEstrovertido"].includes(intersectedObject.name)) {
+                if (intersectedObject.name === "FBXbotonSalaE2") {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
     
-                        // Si no se ha presionado ningún botón todavía
-                        if (gamepad.buttons[0].pressed && !this.buttonPressed1) {
-                            console.log(`${intersectedObject.name} colisionado y botón del gamepad presionado`);
+                        if (gamepad.buttons[0].pressed && !this.buttonPressedComprobar1) {
+                            console.log("FBXbotonSalaE2 colisionado y botón del gamepad presionado");
     
-                            this.buttonPressed1 = true; // Marcar como presionado
-                            if (navigator.vibrate) navigator.vibrate(200); // Vibración opcional
+                            this.buttonPressedComprobar1 = true; // Marca este botón como presionado
     
-                            // Determina el botón seleccionado
-                            let BotonSeleccionado = intersectedObject.name === "FBXbotonIntrovertido"
-                                ? "introvertido"
-                                : "extrovertido";
+                            if (navigator.vibrate) {
+                                navigator.vibrate(200);
+                            }
     
-                            // Llama a la instancia de PM con el nombre del botón seleccionado
-                            this.PM.createText1(BotonSeleccionado);
+                            let Boton = "salaE2";
+    
+                            // Llama a la instancia de PM para ejecutar la lógica
+                            this.PM.createText(Boton);
     
                             return;
                         }
                     }
     
-                    console.log(`${intersectedObject.name} colisionado, pero botón del gamepad no presionado`);
+                    console.log("FBXbotonSalaE2 colisionado, pero botón del gamepad no presionado");
                     return;
                 }
                 intersectedObject = intersectedObject.parent;
             }
     
-            console.log("El objeto colisionado no es un botón válido.");
+            console.log("El objeto colisionado no es FBXbotonSalaE2");
         }
     }
+    
     
     
     
