@@ -211,8 +211,8 @@ export class PM {
 
         const plane = new THREE.Mesh(geometry, material);
         this.scene.add(plane);
-        plane.position.set(0, 3, -5); // Posición del plano (puedes ajustarla según necesites)
-        plane.rotation.x = Math.PI / 2; // Rotación para que el plano se vea correctamente
+        plane.position.set(0, 6.3, 10); // Posición del plano (puedes ajustarla según necesites)
+   
 
         console.log(`Plano de personalidad creado con la textura: ${texturePath}`);
         return plane;
