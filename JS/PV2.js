@@ -125,5 +125,26 @@ export class Extras {
         this.scene.add(Sensitivo);
         this.scene.add(Logica);
         this.scene.add(Sentido);
+        this.scene.add(juicion);
+        this.scene.add(percepcion);
+    }
+
+    puertas(){
+        const textureLoader = new THREE.TextureLoader();
+        const texturepuerta = textureLoader.load('Textures/Textura_Puerta_doble.jpg');
+
+        const geometry_puertas = new THREE.PlaneGeometry( 0.4, 0.7 );
+
+        const material_puerta = new THREE.MeshBasicMaterial( {
+            
+            map:texturepuerta, side: THREE.DoubleSide
+        
+        } );
+
+        
+        const puertasInicio = new THREE.Mesh( geometry_puertas, material_puerta );
+        puertasInicio.position.set(0,6.3,-0.6)
+        puertasInicio.rotation.y=THREE.MathUtils.degToRad(90);
+        this.scene.add(puertasInicio);
     }
 }
