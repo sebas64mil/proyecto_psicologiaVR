@@ -112,26 +112,7 @@ export class PC {
     
                     console.log("FBXbotonInicio colisionado, pero botón del gamepad no presionado");
                     return;
-                }
-                intersectedObject = intersectedObject.parent;
-            }
-    
-            console.log("El objeto colisionado no es FBXbotonInicio");
-        }
-    }
-    
-    Comprobar1() {
-        if (this.buttonPressed === undefined) {
-            this.buttonPressed = false; // Inicializa si no está definido
-        }
-    
-        const intersects = this.raycaster.intersectObjects(this.scene.children, true);
-    
-        if (intersects.length > 0) {
-            let intersectedObject = intersects[0].object;
-    
-            while (intersectedObject.parent) {
-                if (["FBXbotonIntrovertido", "FBXbotonEstrovertido"].includes(intersectedObject.name)) {
+                }else if (["FBXbotonIntrovertido", "FBXbotonExtrovertido"].includes(intersectedObject.name)) {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
@@ -161,9 +142,10 @@ export class PC {
                 intersectedObject = intersectedObject.parent;
             }
     
-            console.log("El objeto colisionado no es un botón válido.");
+            console.log("El objeto colisionado no es FBXbotonInicio");
         }
     }
+    
     
     
     
