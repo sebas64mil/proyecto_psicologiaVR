@@ -110,6 +110,9 @@ class Main {
             this.pc.move();
             this.pc.Comprobar();
             this.pc.Comprobar1();
+            this.pc.Comprobar2();
+            this.pc.Comprobar3();
+            this.pc.Comprobar4();
             this.pc.checkVisibilityBasedOnDistance();
 
             // Renderizar la escena con la cámara
