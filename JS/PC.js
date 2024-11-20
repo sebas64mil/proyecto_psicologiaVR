@@ -131,37 +131,40 @@ export class PC {
             let intersectedObject = intersects[0].object;
     
             while (intersectedObject.parent) {
-                if (["FBXbotonEstrovertido", "FBXbotonIntrovertido"].includes(intersectedObject.name)) {
+                if (["FBXbotonIntrovertido", "FBXbotonEstrovertido"].includes(intersectedObject.name)) {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
     
+                        // Si no se ha presionado ningún botón todavía
                         if (gamepad.buttons[0].pressed && !this.buttonPressed) {
-                            this.buttonPressed = true;
+                            console.log(`${intersectedObject.name} colisionado y botón del gamepad presionado`);
     
-                            // Vibración en dispositivo móvil
-                            if (navigator.vibrate) {
-                                navigator.vibrate(200);
-                            }
+                            this.buttonPressed = true; // Marcar como presionado
+                            if (navigator.vibrate) navigator.vibrate(200); // Vibración opcional
     
-                            // Llama al método específico según el botón detectado
-                            if (intersectedObject.name === "FBXbotonEstrovertido") {
-                                this.PM.createTextExtrovertido(); // Llama al método para el botón extrovertido
-                            } else if (intersectedObject.name === "FBXbotonIntrovertido") {
-                                this.PM.createTextIntrovertido(); // Llama al método para el botón introvertido
-                            }
+                            // Determina el botón seleccionado
+                            let BotonSeleccionado = intersectedObject.name === "FBXbotonIntrovertido"
+                                ? "introvertido"
+                                : "extrovertido";
+    
+                            // Llama a la instancia de PM con el nombre del botón seleccionado
+                            this.PM.createText1(BotonSeleccionado);
     
                             return;
                         }
                     }
-                    console.log("El botón fue detectado pero no se presionó el botón del gamepad.");
+    
+                    console.log(`${intersectedObject.name} colisionado, pero botón del gamepad no presionado`);
                     return;
                 }
                 intersectedObject = intersectedObject.parent;
             }
+    
             console.log("El objeto colisionado no es un botón válido.");
         }
     }
+    
     
     
     
