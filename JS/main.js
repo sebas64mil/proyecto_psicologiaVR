@@ -115,7 +115,7 @@ class Main {
             this.pc.Comprobar4();
             this.pc.checkVisibilityBasedOnDistance();
 
-            this.pc.checkAllButtonsPressed();;
+            
 
             
 
