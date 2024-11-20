@@ -115,6 +115,10 @@ class Main {
             this.pc.Comprobar4();
             this.pc.checkVisibilityBasedOnDistance();
 
+            this.pc.checkAllButtonsPressed();;
+
+            
+
             // Renderizar la escena con la cámara
             this.renderer.render(this.scene, this.camera);
 
