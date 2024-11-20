@@ -108,7 +108,15 @@ export class Extras {
 
         const Sentido = new THREE.Mesh( geometry_situaciones, material_sentido );
         Sentido.position.set(0.55,6.3,6.8)
-        Sentido.rotation.y=THREE.MathUtils.degToRad-(90);
+        Sentido.rotation.y=THREE.MathUtils.degToRad(-90);
+
+        const percepcion = new THREE.Mesh( geometry_situaciones, material_percepcion );
+        percepcion.position.set(0.55,6.3,10)
+        percepcion.rotation.y=THREE.MathUtils.degToRad(-90);
+
+        const juicion = new THREE.Mesh( geometry_situaciones, material_Juicio );
+        juicion.position.set(-0.55,6.3,10)
+        juicion.rotation.y=THREE.MathUtils.degToRad(90);
 
         this.scene.add( introduccion );
         this.scene.add(extrovertido);

@@ -94,8 +94,6 @@ class Main {
         this.pv.FBXbuttonSalaS4()
         this.pv.FBXbuttonsala5orden1();
         this.pv.FBXbuttonsala5orden2();
-        this.pv.FBXbuttonsala5orden3();
-        this.pv.FBXbuttonsala5orden4()
     }
 
     start() {
