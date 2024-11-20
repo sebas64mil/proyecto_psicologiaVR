@@ -112,7 +112,7 @@ export class PC {
                         }
     
                         if (!gamepad.buttons[0].pressed) {
-                            this.buttonPressed = false; // Reiniciar bandera cuando se suelte el botón
+                            this.buttonPressed = true; // Reiniciar bandera cuando se suelte el botón
                         }
                     }
                     return;
@@ -157,7 +157,7 @@ export class PC {
                         }
     
                         if (!gamepad.buttons[0].pressed) {
-                            this.buttonPressed1 = false; // Reiniciar bandera cuando se suelte el botón
+                            this.buttonPressed1 = true; // Reiniciar bandera cuando se suelte el botón
                         }
                     }
                     return;
@@ -247,7 +247,7 @@ export class PC {
                         }
     
                         if (!gamepad.buttons[0].pressed) {
-                            this.buttonPressed3 = false; // Reiniciar bandera cuando se suelte el botón
+                            this.buttonPressed3 = true; // Reiniciar bandera cuando se suelte el botón
                         }
                     }
                     return;
@@ -292,7 +292,7 @@ export class PC {
                         }
     
                         if (!gamepad.buttons[0].pressed) {
-                            this.buttonPressed4 = false; // Reiniciar bandera cuando se suelte el botón
+                            this.buttonPressed4 = true; // Reiniciar bandera cuando se suelte el botón
                         }
                     }
                     return;
