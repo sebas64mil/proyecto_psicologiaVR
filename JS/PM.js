@@ -6,6 +6,9 @@ export class PM {
     }
 
     createText(Boton) {
+
+        const textureLoader = new THREE.TextureLoader();
+
         if (Boton === "inicio") {
             // Crear un plano en lugar de texto
             const texture_Contiue1 = textureLoader.load('Textures/Letreros_textures/Continuar.jpg');
