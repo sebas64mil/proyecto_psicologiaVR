@@ -20,6 +20,11 @@ export class PC {
         this.PV= new PV(scene);
 
         this.PM = new PM(scene);
+
+        this.buttonPressed1 = false;
+        this.buttonPressed2 = false;
+        this.buttonPressed3 = false;
+        this.buttonPressed4 = false;
     }
 
     move() {
@@ -118,41 +123,25 @@ export class PC {
     }
     
     Comprobar1() {
-        if (this.buttonPressed1 === undefined) {
-            this.buttonPressed1 = false; // Inicializa si no está definido
-        }
-    
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
-    
+
         if (intersects.length > 0) {
             let intersectedObject = intersects[0].object;
-    
+
             while (intersectedObject.parent) {
                 if (["FBXbotonIntrovertido", "FBXbotonExtrovertido"].includes(intersectedObject.name)) {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
-    
+
                         if (gamepad.buttons[0].pressed && !this.buttonPressed1) {
-                            console.log(`${intersectedObject.name} colisionado y botón del gamepad presionado`);
-    
-                            this.buttonPressed1 = true; // Marcar como presionado
-    
-                            if (navigator.vibrate) {
-                                navigator.vibrate(200); // Vibración opcional
-                            }
-    
-                            let BotonSeleccionado = intersectedObject.name === "FBXbotonIntrovertido"
-                                ? "introvertido"
-                                : "extrovertido";
-    
-                            this.PM.createText1(BotonSeleccionado);
-    
+                            this.buttonPressed1 = true;
+                            this.handleButtonPress(intersectedObject, "I", "E");
                             return;
                         }
-    
+
                         if (!gamepad.buttons[0].pressed) {
-                            this.buttonPressed1 = false; // Reiniciar bandera cuando se suelte el botón
+                            this.buttonPressed1 = false;
                         }
                     }
                     return;
@@ -163,41 +152,25 @@ export class PC {
     }
 
     Comprobar2() {
-        if (this.buttonPressed2 === undefined) {
-            this.buttonPressed2 = false; // Inicializa si no está definido
-        }
-    
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
-    
+
         if (intersects.length > 0) {
             let intersectedObject = intersects[0].object;
-    
+
             while (intersectedObject.parent) {
                 if (["FBXbotonSensitivo", "FBXbotonIntucicion"].includes(intersectedObject.name)) {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
-    
+
                         if (gamepad.buttons[0].pressed && !this.buttonPressed2) {
-                            console.log(`${intersectedObject.name} colisionado y botón del gamepad presionado`);
-    
-                            this.buttonPressed2 = true; // Marcar como presionado
-    
-                            if (navigator.vibrate) {
-                                navigator.vibrate(200); // Vibración opcional
-                            }
-    
-                            let BotonSeleccionado = intersectedObject.name === "FBXbotonSensitivo"
-                                ? "sensitivo"
-                                : "intuicion";
-    
-                            this.PM.createText2(BotonSeleccionado);
-    
+                            this.buttonPressed2 = true;
+                            this.handleButtonPress(intersectedObject, "SEN", "IN");
                             return;
                         }
-    
+
                         if (!gamepad.buttons[0].pressed) {
-                            this.buttonPressed2 = false; // Reiniciar bandera cuando se suelte el botón
+                            this.buttonPressed2 = false;
                         }
                     }
                     return;
@@ -206,43 +179,27 @@ export class PC {
             }
         }
     }
-    
+
     Comprobar3() {
-        if (this.buttonPressed3 === undefined) {
-            this.buttonPressed3 = false; // Inicializa si no está definido
-        }
-    
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
-    
+
         if (intersects.length > 0) {
             let intersectedObject = intersects[0].object;
-    
+
             while (intersectedObject.parent) {
                 if (["FBXbotonSentido", "FBXbotonLogica"].includes(intersectedObject.name)) {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
-    
+
                         if (gamepad.buttons[0].pressed && !this.buttonPressed3) {
-                            console.log(`${intersectedObject.name} colisionado y botón del gamepad presionado`);
-    
-                            this.buttonPressed3 = true; // Marcar como presionado
-    
-                            if (navigator.vibrate) {
-                                navigator.vibrate(200); // Vibración opcional
-                            }
-    
-                            let BotonSeleccionado = intersectedObject.name === "FBXbotonSentido"
-                                ? "sentido"
-                                : "logica";
-    
-                            this.PM.createText3(BotonSeleccionado);
-    
+                            this.buttonPressed3 = true;
+                            this.handleButtonPress(intersectedObject, "S", "L");
                             return;
                         }
-    
+
                         if (!gamepad.buttons[0].pressed) {
-                            this.buttonPressed3 = false; // Reiniciar bandera cuando se suelte el botón
+                            this.buttonPressed3 = false;
                         }
                     }
                     return;
@@ -253,41 +210,25 @@ export class PC {
     }
 
     Comprobar4() {
-        if (this.buttonPressed4 === undefined) {
-            this.buttonPressed4 = false; // Inicializa si no está definido
-        }
-    
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
-    
+
         if (intersects.length > 0) {
             let intersectedObject = intersects[0].object;
-    
+
             while (intersectedObject.parent) {
                 if (["FBXAbotonOrden1", "FBXAbotonOrden2"].includes(intersectedObject.name)) {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
-    
+
                         if (gamepad.buttons[0].pressed && !this.buttonPressed4) {
-                            console.log(`${intersectedObject.name} colisionado y botón del gamepad presionado`);
-    
-                            this.buttonPressed4 = true; // Marcar como presionado
-    
-                            if (navigator.vibrate) {
-                                navigator.vibrate(200); // Vibración opcional
-                            }
-    
-                            let BotonSeleccionado = intersectedObject.name === "FBXAbotonOrden1"
-                                ? "percepcion"
-                                : "juicio";
-    
-                            this.PM.createText4(BotonSeleccionado);
-    
+                            this.buttonPressed4 = true;
+                            this.handleButtonPress(intersectedObject, "P", "J");
                             return;
                         }
-    
+
                         if (!gamepad.buttons[0].pressed) {
-                            this.buttonPressed4 = false; // Reiniciar bandera cuando se suelte el botón
+                            this.buttonPressed4 = false;
                         }
                     }
                     return;
@@ -296,7 +237,6 @@ export class PC {
             }
         }
     }
-    
     
     
 
@@ -327,7 +267,31 @@ export class PC {
         });
     }
     
+        // Método para manejar la presion de un botón y mostrar el texto correspondiente
+        handleButtonPress(intersectedObject, boton1, boton2) {
+            if (navigator.vibrate) {
+                navigator.vibrate(200); // Vibración opcional
+            }
     
+            let BotonSeleccionado = intersectedObject.name === `FBXboton${boton1}` ? boton1 : boton2;
+            this.PM[`createText${boton1}`](BotonSeleccionado);
+    
+            // Verificar si todos los botones fueron presionados
+            this.checkAllButtonsPressed();
+        }
+    
+        // Método para verificar si todos los botones han sido presionados
+        checkAllButtonsPressed() {
+            if (this.buttonPressed1 && this.buttonPressed2 && this.buttonPressed3 && this.buttonPressed4) {
+                this.createPersonalityPlane1();
+            }
+        }
+    
+        // Crear el plano después de que todos los botones se presionaron
+        createPersonalityPlane1() {
+            const texturePath = this.PM.verifyPersonality(plane1, plane2, plane3, plane4);
+            this.PM.createPersonalityPlane(texturePath);
+        }
     
     
     
