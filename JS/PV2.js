@@ -7,11 +7,24 @@ export class Extras {
     }
 
     crearSituaciones(){
+        const textureLoader = new THREE.TextureLoader();
+
+        const textureintroduccion = textureLoader.load('Textures/Letreros_textures/Introduccion.jpg');
 
         const geometry_situaciones = new THREE.PlaneGeometry( 0.5, 0.4 );
+        
 
 
-        const material_opcion1 = new THREE.MeshBasicMaterial( {color: 0xff0000, side: THREE.DoubleSide} );
+        const material_opcion1 = new THREE.MeshBasicMaterial( {
+            
+            map:textureintroduccion, side: THREE.DoubleSide
+        
+        } );
+        
+        
+        
+        
+        
         const opcion1 = new THREE.Mesh( geometry_situaciones, material_opcion1 );
         opcion1.position.set(-0.55,6.3,0)
         opcion1.rotation.y=THREE.MathUtils.degToRad(90);
