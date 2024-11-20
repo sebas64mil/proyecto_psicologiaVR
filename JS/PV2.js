@@ -53,6 +53,30 @@ export class Extras {
             map:textureSensitivo, side: THREE.DoubleSide
         
         } );
+
+        const material_logica = new THREE.MeshBasicMaterial( {
+            
+            map:textureLogica, side: THREE.DoubleSide
+        
+        } );
+
+        const material_sentido = new THREE.MeshBasicMaterial( {
+            
+            map:textureSentido, side: THREE.DoubleSide
+        
+        } );
+
+        const material_percepcion = new THREE.MeshBasicMaterial( {
+            
+            map:texturePercepcion, side: THREE.DoubleSide
+        
+        } );
+
+        const material_Juicio = new THREE.MeshBasicMaterial( {
+            
+            map:textureJuicio, side: THREE.DoubleSide
+        
+        } );
         
         
         
@@ -70,8 +94,18 @@ export class Extras {
         Introvertido.position.set(0.55,6.3,2.8)
         Introvertido.rotation.y=THREE.MathUtils.degToRad(90);
 
+        const Intuicion = new THREE.Mesh( geometry_situaciones, material_intuicion );
+        Intuicion.position.set(0.55,6.3,5.2)
+        Intuicion.rotation.y=THREE.MathUtils.degToRad(90);
+
+        const Sensitivo = new THREE.Mesh( geometry_situaciones, material_sensitivo );
+        Sensitivo.position.set(0.55,6.3,4.4)
+        Sensitivo.rotation.y=THREE.MathUtils.degToRad(90);
+
         this.scene.add( introduccion );
         this.scene.add(extrovertido);
         this.scene.add(Introvertido);
+        this.scene.add(Intuicion);
+        this.scene.add(Sensitivo);
     }
 }
