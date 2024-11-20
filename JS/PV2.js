@@ -145,7 +145,7 @@ export class Extras {
         const textureLoader = new THREE.TextureLoader();
         const texturepuerta = textureLoader.load('Textures/Textura_Puerta_doble.jpg');
 
-        const geometry_puertas = new THREE.PlaneGeometry( 0.4, 0.7 );
+        const geometry_puertas = new THREE.PlaneGeometry( 0.4, 0.4 );
 
         const material_puerta = new THREE.MeshBasicMaterial( {
             
@@ -155,7 +155,7 @@ export class Extras {
 
         
         const puertasInicio = new THREE.Mesh( geometry_puertas, material_puerta );
-        puertasInicio.position.set(0,6.3,-0.6)
+        puertasInicio.position.set(0,6,-0.7)
         puertasInicio.rotation.y=THREE.MathUtils.degToRad(90);
         this.scene.add(puertasInicio);
     }
