@@ -190,4 +190,72 @@ export class Extras {
         puertasfinal.name="FBXAPuertafinal"
         this.scene.add(puertasfinal);
     }
+
+    casosHab(){
+        const textureLoader = new THREE.TextureLoader();
+
+        const textureHab2 = textureLoader.load('Textures/Letreros_textures/SITUACION1.jpg');
+        const textureHab3 = textureLoader.load('Textures/Letreros_textures/SITUACION2.jpg');
+        const textureHab4 = textureLoader.load('Textures/Letreros_textures/SITUACION3.jpg');
+        const textureHab5 = textureLoader.load('Textures/Letreros_textures/SITUACION4.jpg');
+
+
+        const geometry_casos = new THREE.PlaneGeometry( 0.5, 0.4 );
+
+
+        const material_Hab2 = new THREE.MeshBasicMaterial( {
+            
+            map:textureHab2, side: THREE.DoubleSide
+        
+        } );
+        
+        const material_Hab3 = new THREE.MeshBasicMaterial( {
+            
+            map:textureHab3, side: THREE.DoubleSide
+        
+        } );
+
+        const material_Hab4 = new THREE.MeshBasicMaterial( {
+            
+            map:textureHab4, side: THREE.DoubleSide
+        
+        } );
+
+        const material_Hab5 = new THREE.MeshBasicMaterial( {
+            
+            map:textureHab5, side: THREE.DoubleSide
+        
+        } );
+
+
+
+        const HAB2 = new THREE.Mesh( geometry_casos, material_Hab2 );
+        HAB2.position.set(-0.55,6.3,2.5)
+        HAB2.name="FBXHAB2"
+        HAB2.rotation.y=THREE.MathUtils.degToRad(90);
+        this.scene.add(HAB2);
+
+
+        const HAB3 = new THREE.Mesh( geometry_casos, material_Hab3 );
+        HAB3.position.set(0.55,6.3,4.7)
+        HAB3.name="FBXHAB3"
+        HAB3.rotation.y=THREE.MathUtils.degToRad(-90);
+        this.scene.add(HAB3);
+
+
+        const HAB4 = new THREE.Mesh( geometry_casos, material_Hab4 );
+        HAB4.position.set(-0.55,6.3,7.2)
+        HAB4.name="FBXHAB4"
+        HAB4.rotation.y=THREE.MathUtils.degToRad(90);
+        this.scene.add(HAB4);
+
+
+        const HAB5 = new THREE.Mesh( geometry_casos, material_Hab5 );
+        HAB5.position.set(0.55,6.3,10.8)
+        HAB5.name="FBXHA5"
+        HAB5.rotation.y=THREE.MathUtils.degToRad(-90);
+        this.scene.add(HAB5);
+
+
+    }
 }

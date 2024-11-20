@@ -75,6 +75,7 @@ class Main {
     // Llamar al método crearSituaciones
     this.Extra.crearSituaciones();
     this.Extra.puertas();
+    this.Extra.casosHab();
 
         // Añadir geometrías
         this.pv.FBXcuarto1();
