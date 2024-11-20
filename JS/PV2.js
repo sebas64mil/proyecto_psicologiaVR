@@ -44,11 +44,11 @@ export class Extras {
         console.log("Comprobar");
 
         const extrovertido = new THREE.Mesh( geometry_situaciones, material_extrovertido );
-        extrovertido.position.set(0.55,7,2)
+        extrovertido.position.set(0.55,6.3,2)
         extrovertido.rotation.y=THREE.MathUtils.degToRad(90);
 
         const Introvertido = new THREE.Mesh( geometry_situaciones, material_introvertido );
-        Introvertido.position.set(0.55,7,2.8)
+        Introvertido.position.set(0.55,6.3,2.8)
         Introvertido.rotation.y=THREE.MathUtils.degToRad(90);
 
         this.scene.add( introduccion );
