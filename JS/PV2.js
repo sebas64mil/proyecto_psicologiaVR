@@ -88,24 +88,34 @@ export class Extras {
 
         const extrovertido = new THREE.Mesh( geometry_situaciones, material_extrovertido );
         extrovertido.position.set(0.55,6.3,2)
-        extrovertido.rotation.y=THREE.MathUtils.degToRad(90);
+        extrovertido.rotation.y=THREE.MathUtils.degToRad(-90);
 
         const Introvertido = new THREE.Mesh( geometry_situaciones, material_introvertido );
         Introvertido.position.set(0.55,6.3,2.8)
-        Introvertido.rotation.y=THREE.MathUtils.degToRad(90);
+        Introvertido.rotation.y=THREE.MathUtils.degToRad(-90);
 
         const Intuicion = new THREE.Mesh( geometry_situaciones, material_intuicion );
-        Intuicion.position.set(0.55,6.3,5.2)
+        Intuicion.position.set(-0.55,6.3,5.2)
         Intuicion.rotation.y=THREE.MathUtils.degToRad(90);
 
         const Sensitivo = new THREE.Mesh( geometry_situaciones, material_sensitivo );
-        Sensitivo.position.set(0.55,6.3,4.4)
+        Sensitivo.position.set(-0.55,6.3,4.4)
         Sensitivo.rotation.y=THREE.MathUtils.degToRad(90);
+
+        const Logica = new THREE.Mesh( geometry_situaciones, material_logica );
+        Logica.position.set(0.55,6.3,7.6)
+        Logica.rotation.y=THREE.MathUtils.degToRad(-90);
+
+        const Sentido = new THREE.Mesh( geometry_situaciones, material_sentido );
+        Sentido.position.set(0.55,6.3,6.8)
+        Sentido.rotation.y=THREE.MathUtils.degToRad-(90);
 
         this.scene.add( introduccion );
         this.scene.add(extrovertido);
         this.scene.add(Introvertido);
         this.scene.add(Intuicion);
         this.scene.add(Sensitivo);
+        this.scene.add(Logica);
+        this.scene.add(Sentido);
     }
 }
