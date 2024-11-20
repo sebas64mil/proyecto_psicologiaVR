@@ -20,6 +20,7 @@ export class PM {
             const plane = new THREE.Mesh(geometry, material);
             plane.name = 'FBXbotonInicio';
             plane.position.set(0, 6.3, 0);
+            plane.rotation.y= THREE.MathUtils.degToRad(180)
             this.scene.add(plane);
     
             // Eliminar el objeto "PuertaSala2"
