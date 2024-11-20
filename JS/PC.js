@@ -112,16 +112,35 @@ export class PC {
     
                     console.log("FBXbotonInicio colisionado, pero botón del gamepad no presionado");
                     return;
-                }else if (["FBXbotonIntrovertido", "FBXbotonExtrovertido"].includes(intersectedObject.name)) {
+                }
+                intersectedObject = intersectedObject.parent;
+            }
+    
+            console.log("El objeto colisionado no es FBXbotonInicio");
+        }
+    }
+    
+    Comprobar1() {
+        if (this.buttonPressed1 === undefined) {
+            this.buttonPressed1 = false; // Inicializa si no está definido
+        }
+    
+        const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+    
+        if (intersects.length > 0) {
+            let intersectedObject = intersects[0].object;
+    
+            while (intersectedObject.parent) {
+                if (["FBXbotonIntrovertido", "FBXbotonEstrovertido"].includes(intersectedObject.name)) {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
     
                         // Si no se ha presionado ningún botón todavía
-                        if (gamepad.buttons[0].pressed && !this.buttonPressed) {
+                        if (gamepad.buttons[0].pressed && !this.buttonPressed1) {
                             console.log(`${intersectedObject.name} colisionado y botón del gamepad presionado`);
     
-                            this.buttonPressed = true; // Marcar como presionado
+                            this.buttonPressed1 = true; // Marcar como presionado
                             if (navigator.vibrate) navigator.vibrate(200); // Vibración opcional
     
                             // Determina el botón seleccionado
@@ -142,10 +161,9 @@ export class PC {
                 intersectedObject = intersectedObject.parent;
             }
     
-            console.log("El objeto colisionado no es FBXbotonInicio");
+            console.log("El objeto colisionado no es un botón válido.");
         }
     }
-    
     
     
     
