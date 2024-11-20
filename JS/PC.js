@@ -75,10 +75,9 @@ export class PC {
     
 
     
-
     Comprobar() {
-        if (this.buttonPressedComprobar === undefined) {
-            this.buttonPressedComprobar = false; // Bandera independiente para Comprobar
+        if (this.buttonPressed === undefined) {
+            this.buttonPressed = false; // Inicializa si no está definido
         }
     
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
@@ -92,37 +91,35 @@ export class PC {
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
     
-                        if (gamepad.buttons[0].pressed && !this.buttonPressedComprobar) {
+                        if (gamepad.buttons[0].pressed && !this.buttonPressed) {
                             console.log("FBXbotonInicio colisionado y botón del gamepad presionado");
     
-                            this.buttonPressedComprobar = true; // Marca este botón como presionado
+                            this.buttonPressed = true; // Marcar como presionado
     
                             if (navigator.vibrate) {
-                                navigator.vibrate(200);
+                                navigator.vibrate(200); // Vibración opcional
                             }
     
                             let Boton = "inicio";
-    
-                            // Llama a la instancia de PM para ejecutar la lógica
-                            this.PM.createText(Boton);
+                            this.PM.createText(Boton); // Llama a PM para lógica adicional
     
                             return;
                         }
-                    }
     
-                    console.log("FBXbotonInicio colisionado, pero botón del gamepad no presionado");
+                        if (!gamepad.buttons[0].pressed) {
+                            this.buttonPressed = false; // Reiniciar bandera cuando se suelte el botón
+                        }
+                    }
                     return;
                 }
                 intersectedObject = intersectedObject.parent;
             }
-    
-            console.log("El objeto colisionado no es FBXbotonInicio");
         }
     }
     
     Comprobar1() {
-        if (this.buttonPressedComprobar1 === undefined) {
-            this.buttonPressedComprobar1 = false; // Bandera independiente para Comprobar1
+        if (this.buttonPressed1 === undefined) {
+            this.buttonPressed1 = false; // Inicializa si no está definido
         }
     
         const intersects = this.raycaster.intersectObjects(this.scene.children, true);
@@ -131,36 +128,37 @@ export class PC {
             let intersectedObject = intersects[0].object;
     
             while (intersectedObject.parent) {
-                if (intersectedObject.name === "FBXbotonSalaE2") {
+                if (["FBXbotonIntrovertido", "FBXbotonExtrovertido"].includes(intersectedObject.name)) {
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
                         const gamepad = gamepads[0];
     
-                        if (gamepad.buttons[0].pressed && !this.buttonPressedComprobar1) {
-                            console.log("FBXbotonSalaE2 colisionado y botón del gamepad presionado");
+                        if (gamepad.buttons[0].pressed && !this.buttonPressed1) {
+                            console.log(`${intersectedObject.name} colisionado y botón del gamepad presionado`);
     
-                            this.buttonPressedComprobar1 = true; // Marca este botón como presionado
+                            this.buttonPressed1 = true; // Marcar como presionado
     
                             if (navigator.vibrate) {
-                                navigator.vibrate(200);
+                                navigator.vibrate(200); // Vibración opcional
                             }
     
-                            let Boton = "salaE2";
+                            let BotonSeleccionado = intersectedObject.name === "FBXbotonIntrovertido"
+                                ? "introvertido"
+                                : "extrovertido";
     
-                            // Llama a la instancia de PM para ejecutar la lógica
-                            this.PM.createText(Boton);
+                            this.PM.createText1(BotonSeleccionado);
     
                             return;
                         }
-                    }
     
-                    console.log("FBXbotonSalaE2 colisionado, pero botón del gamepad no presionado");
+                        if (!gamepad.buttons[0].pressed) {
+                            this.buttonPressed1 = false; // Reiniciar bandera cuando se suelte el botón
+                        }
+                    }
                     return;
                 }
                 intersectedObject = intersectedObject.parent;
             }
-    
-            console.log("El objeto colisionado no es FBXbotonSalaE2");
         }
     }
     
