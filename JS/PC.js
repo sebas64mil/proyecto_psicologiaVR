@@ -54,7 +54,7 @@ export class PC {
                         // Si la distancia al objeto es menor a 0.25, detener el movimiento
                         if (distance < 0.25) {
                             if (firstHit.object.name && 
-                                (firstHit.object.name.includes("cuarto") || firstHit.object.name.includes("pasillo"))) {
+                                (firstHit.object.name.includes("cuarto") || firstHit.object.name.includes("pasillo") || firstHit.object.name.includes("puerta"))) {
                                 console.log("Colisión con objeto que contiene 'cuarto' o 'pasillo', movimiento detenido");
                                 return; // Detener movimiento si se colide con uno de esos objetos
                             }
@@ -135,7 +135,7 @@ export class PC {
     
             // Recorremos la jerarquía hacia arriba buscando el objeto principal
             while (intersectedObject.parent) {
-                if (intersectedObject.name === "FBXbotonInicio") {
+                if (intersectedObject.name === "FBXbotonEstrovertido" || intersectedObject.name === "FBXbotonIntrovertido" ) {
                     // Verificar si un gamepad está conectado
                     const gamepads = navigator.getGamepads();
                     if (gamepads && gamepads[0]) {
@@ -154,11 +154,24 @@ export class PC {
                             }
     
                             // Establecer el valor de Boton
-                            let Boton = "inicio";
+                            if (intersectedObject.name === "FBXbotonEstrovertido"  ) {
+                                let Boton = "E";
     
-                            // Llamar al método para crear el plano directamente
+                                // Llamar al método para crear el plano directamente
+    
+                                    this.PM.createTextExtrovertido(Boton); // Crear el plano en lugar de solo cambiar el valor de Boton
 
-                                this.PM.createText(Boton); // Crear el plano en lugar de solo cambiar el valor de Boton
+                            }
+
+                            if (intersectedObject.name === "FBXbotonIntrovertido"  ) {
+                                let Boton = "I";
+    
+                                // Llamar al método para crear el plano directamente
+    
+                                    this.PM.createTextExtrovertido(Boton); // Crear el plano en lugar de solo cambiar el valor de Boton
+
+                            }
+
 
     
                             return;

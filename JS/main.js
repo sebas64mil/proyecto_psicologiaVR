@@ -108,6 +108,7 @@ class Main {
             // Aquí gestionamos la lógica según si estamos en VR o no
             this.pc.move();
             this.pc.Comprobar();
+            this.pc.Comprobar1();
             this.pc.checkVisibilityBasedOnDistance();
 
             // Renderizar la escena con la cámara
