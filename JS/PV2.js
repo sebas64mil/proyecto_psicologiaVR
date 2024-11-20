@@ -162,6 +162,26 @@ export class Extras {
         puertasAsala2.position.set(0,6.2,1.6);
         puertasAsala2.name="PuertaSala2"
         
+        
         this.scene.add(puertasAsala2);
+
+        const puertasAsala3 = new THREE.Mesh( geometry_puertas, material_puerta );
+        puertasAsala3.position.set(0,6.2,1.6);
+        puertasAsala3.name="PuertaSala3"
+
+        
+        const puertasAsala4 = new THREE.Mesh( geometry_puertas, material_puerta );
+        puertasAsala4.position.set(0,6.2,1.6);
+        puertasAsala4.name="PuertaSala4"
+
+        
+        const puertasAsala5 = new THREE.Mesh( geometry_puertas, material_puerta );
+        puertasAsala5.position.set(0,6.2,1.6);
+        puertasAsala5.name="PuertaSala5"
+
+        
+        const puertasfinal = new THREE.Mesh( geometry_puertas, material_puerta );
+        puertasfinal.position.set(0,6.2,11.28);
+        this.scene.add(puertasfinal);
     }
 }
